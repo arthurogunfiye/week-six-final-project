@@ -130,11 +130,3 @@ const Movies = () => {
 };
 
 export default Movies;
-
-{
-  /* <a href="#" className="backToTopAnchor">
-          <div className="backToTop">
-            <i className="fa-solid fa-arrow-up"></i>
-          </div>
-        </a> */
-}

@@ -58,6 +58,7 @@ const Home = () => {
                     <a
                       href="https://www.omdbapi.com/"
                       target="_blank"
+                      rel="noreferrer"
                       className="omdbApiLink"
                     >
                       OMDB API
@@ -135,7 +136,7 @@ const Home = () => {
               <div>
                 <img
                   src={headerImage}
-                  alt="Movie night image"
+                  alt="Movie Night"
                   className="movie-logo"
                 />
               </div>
