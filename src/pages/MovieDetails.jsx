@@ -9,14 +9,14 @@ const MovieDetails = () => {
 
   const fetchMovie = async () => {
     const { data } = await axios.get(
-      `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${id}&plot=full`
+      `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&i=${id}&plot=full`
     );
     setMovie(data);
   };
 
   useEffect(() => {
     fetchMovie();
-  }, [id]);
+  }, []);
 
   return (
     <>

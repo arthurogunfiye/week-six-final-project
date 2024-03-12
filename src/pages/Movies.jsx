@@ -13,9 +13,9 @@ const Movies = () => {
   const fetchMovies = async () => {
     setIsLoading(true);
     const { data } = await axios.get(
-      `https://www.omdbapi.com/?apikey=${procees.env.OMDB_API_KEY}&s=${
-        keyword || searchKeyword
-      }`
+      `https://www.omdbapi.com/?apikey=${
+        process.env.REACT_APP_OMDB_API_KEY
+      }&s=${keyword || searchKeyword}`
     );
     setIsLoading(false);
     setMovies(data.Search);
@@ -23,7 +23,7 @@ const Movies = () => {
 
   useEffect(() => {
     fetchMovies();
-  }, [keyword]);
+  }, []);
 
   const handleMovieCardClick = movieId => {
     navigate(`/movie/${movieId}`);
