@@ -13,7 +13,9 @@ const Movies = () => {
   const fetchMovies = async () => {
     setIsLoading(true);
     const { data } = await axios.get(
-      `https://www.omdbapi.com/?apikey=d41bf15f&s=${keyword || searchKeyword}`
+      `https://www.omdbapi.com/?apikey=${procees.env.OMDB_API_KEY}&s=${
+        keyword || searchKeyword
+      }`
     );
     setIsLoading(false);
     setMovies(data.Search);

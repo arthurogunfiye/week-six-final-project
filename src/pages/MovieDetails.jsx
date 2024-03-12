@@ -9,7 +9,7 @@ const MovieDetails = () => {
 
   const fetchMovie = async () => {
     const { data } = await axios.get(
-      `https://www.omdbapi.com/?apikey=d41bf15f&i=${id}&plot=full`
+      `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${id}&plot=full`
     );
     setMovie(data);
   };
