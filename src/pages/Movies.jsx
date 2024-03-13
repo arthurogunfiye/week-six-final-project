@@ -2,6 +2,8 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import logo from "../assets/white-logo.png";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 const Movies = () => {
   const { keyword } = useParams();
@@ -26,6 +28,10 @@ const Movies = () => {
   }, []);
 
   const handleSearch = () => {
+    if (!searchKeyword) {
+      toast.error("Please enter a movie");
+      return;
+    }
     fetchMovies(searchKeyword);
   };
 
@@ -86,7 +92,7 @@ const Movies = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
                     className="svg-inline--fa fa-search fa-w-16 search__icon"
-                    onClick={() => fetchMovies(searchKeyword)}
+                    onClick={() => handleSearch()}
                   >
                     <path
                       data-v-390ceb07=""
@@ -159,6 +165,19 @@ const Movies = () => {
             </div>
           </div>
         </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={3500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
       </section>
     </>
   );

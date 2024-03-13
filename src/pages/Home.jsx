@@ -2,6 +2,8 @@ import headerImage from "../assets/movie-logo.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import "react-toastify/dist/ReactToastify.css";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState();
@@ -10,7 +12,8 @@ const Home = () => {
 
   const handleSearch = async searchKeyword => {
     if (!searchKeyword) {
-      alert("Please enter a movie name");
+      toast.error("Please enter a movie");
+      return;
     } else {
       setIsLoading(true);
       setTimeout(() => {
@@ -121,6 +124,19 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={3500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
       </section>
     </>
   );
