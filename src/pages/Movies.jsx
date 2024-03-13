@@ -103,27 +103,58 @@ const Movies = () => {
       <section id="searchResults">
         <div className="container">
           <div className="row">
+            <h1 className="searchResultsText">
+              <span className="purple">Search Results</span>
+            </h1>
             <div className="searchResult--wrapper">
-              {isLoading
-                ? "Loading ... "
-                : movies.map(movie => (
-                    <>
-                      <div
-                        onClick={() => handleMovieCardClick(movie.imdbID)}
-                        key={movie.imdbID}
-                        className="searchResult__card"
-                      >
-                        <div className="searchResult__card--img">
-                          <img src={movie.Poster} alt={movie.Title} />
-                        </div>
-                        <div className="searchResult__card--title">
-                          {movie.Title}
-                        </div>
+              {isLoading ? (
+                <svg
+                  data-v-cf78a876=""
+                  data-v-2a11e7ca=""
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="spinner"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  className="svg-inline--fa fa-spinner fa-w-16"
+                >
+                  <path
+                    data-v-cf78a876=""
+                    fill="currentColor"
+                    d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49
+              48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51
+              0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0
+              229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48
+              48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49
+              48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+                    className=""
+                  ></path>
+                </svg>
+              ) : (
+                movies.slice(0, 6).map(movie => (
+                  <>
+                    <div
+                      onClick={() => handleMovieCardClick(movie.imdbID)}
+                      key={movie.imdbID}
+                      className="searchResult__card"
+                    >
+                      <div className="searchResult_img">
+                        <img
+                          src={movie.Poster}
+                          alt={movie.Title}
+                          fill
+                          width="300"
+                          height="444"
+                        />
                       </div>
-                    </>
-                  ))}
+                      <div className="purple">{movie.Title}</div>
+                    </div>
+                  </>
+                ))
+              )}
             </div>
-            <div className="searchErrorMessage"></div>
           </div>
         </div>
       </section>

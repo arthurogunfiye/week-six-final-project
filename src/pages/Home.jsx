@@ -1,7 +1,7 @@
-import logo from "../assets/purple-logo.png";
 import headerImage from "../assets/movie-logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState();
@@ -9,41 +9,19 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleSearch = async searchKeyword => {
-    setIsLoading(true);
-    setTimeout(() => {
-      navigate(`/movies/${searchKeyword}`);
-    }, 2000);
+    if (!searchKeyword) {
+      alert("Please enter a movie name");
+    } else {
+      setIsLoading(true);
+      setTimeout(() => {
+        navigate(`/movies/${searchKeyword}`);
+      }, 1000);
+    }
   };
 
   return (
     <>
-      <section id="nav">
-        <div className="container">
-          <div className="row">
-            <nav>
-              <img src={logo} alt="Logo" className="purple-logo" />
-              <ul className="nav__links">
-                <Link
-                  to="/"
-                  className="nav__link--homePage nav__link--homePage-active link__hover-effect"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/movies"
-                  className="nav__link--homePage link__hover-effect"
-                >
-                  Find a movie
-                </Link>
-
-                <Link href="#" className="nav__link--primary-homePage">
-                  Contact
-                </Link>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </section>
+      <Navbar />
       <section id="landing">
         <div className="container">
           <div className="row">
