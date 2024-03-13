@@ -10,7 +10,7 @@ const Movies = () => {
   const [searchKeyword, setSearchKeyword] = useState(keyword);
   const navigate = useNavigate();
 
-  const fetchMovies = async () => {
+  const fetchMovies = async keyword => {
     setIsLoading(true);
     const { data } = await axios.get(
       `https://www.omdbapi.com/?apikey=${
@@ -24,6 +24,10 @@ const Movies = () => {
   useEffect(() => {
     fetchMovies();
   }, []);
+
+  const handleSearch = () => {
+    fetchMovies(searchKeyword);
+  };
 
   const handleMovieCardClick = movieId => {
     navigate(`/movie/${movieId}`);
@@ -69,9 +73,7 @@ const Movies = () => {
                   placeholder="Search for a movie"
                   value={searchKeyword}
                   onChange={e => setSearchKeyword(e.target.value)}
-                  onKeyDown={event =>
-                    event.key === "Enter" && fetchMovies(searchKeyword)
-                  }
+                  onKeyDown={event => event.key === "Enter" && handleSearch()}
                 />
                 <div className="search__icon--wrapper">
                   <svg
