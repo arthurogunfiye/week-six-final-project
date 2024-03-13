@@ -126,7 +126,7 @@ const Home = () => {
         </div>
         <ToastContainer
           position="top-center"
-          autoClose={3500}
+          autoClose={1500}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick

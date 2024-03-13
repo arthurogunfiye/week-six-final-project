@@ -15,9 +15,26 @@ body {
   margin: 0 auto;
 }
 
-/* iframe#webpack-dev-server-client-overlay {
+iframe#webpack-dev-server-client-overlay {
   display: none;
-} */
+}
+
+.errorMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errorMessageBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6030b1;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
 a {
   text-decoration: none;
