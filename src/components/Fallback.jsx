@@ -3,9 +3,11 @@ function Fallback({ error, resetErrorBoundary }) {
     <>
       <div role="alert" className="errorMessage">
         <h1>
-          <span className="purple">Ooops! Movie not found</span>
+          <span className="purple errorPageTitle">Ooops! Movie not found</span>
         </h1>
-        <p>Try updating the URL to a valid movie title</p>
+        <p className="errorPagePara">
+          Try updating the URL to a valid movie title
+        </p>
         <p>
           For example:{" "}
           <span className="purple">

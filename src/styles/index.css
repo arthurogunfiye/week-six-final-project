@@ -25,15 +25,13 @@ iframe#webpack-dev-server-client-overlay {
   align-items: center;
 }
 
-.errorMessageBtn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #6030b1;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.errorMessage,
+.errorPagePara {
+  margin-top: 2.5rem;
+}
+
+.errorPagePara {
+  margin-bottom: 2.5rem;
 }
 
 a {
