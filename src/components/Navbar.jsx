@@ -19,7 +19,7 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
-                to="/movies"
+                to="/movies/avengers"
                 className="nav__link--homePage link__hover-effect"
               >
                 Find a movie

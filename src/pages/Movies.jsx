@@ -4,8 +4,6 @@ import logo from "../assets/white-logo.png";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { Bounce, ToastContainer, toast } from "react-toastify";
-import { ErrorBoundary } from "react-error-boundary";
-import Fallback from "../components/Fallback";
 
 const Movies = () => {
   const { keyword } = useParams();
@@ -154,7 +152,6 @@ const Movies = () => {
                         <img
                           src={movie.Poster}
                           alt={movie.Title}
-                          fill
                           width="300"
                           height="444"
                         />
